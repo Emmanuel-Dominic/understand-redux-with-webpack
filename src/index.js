@@ -1,26 +1,19 @@
 import './styles/style.scss';
-import dImage from './assets/dImage.png';
+// import dImage from './assets/dImage.png';
 
-const createTextItem = (type, value) => {
-    let element = document.createElement(`${type}`);
+const createTextItem = (value) => {
+    let element = document.createElement('h1');
     element.textContent = value;
     return element;
 }
 
-const createGalleryItem = (type, value) => {
-    let element = document.createElement(`${type}`);
-    element.src = value;
-    return element;
-}
-
-const welcome = () => {
+const welcome = (str) => {
     return () => {
         let body = document.getElementsByTagName('body')[0];
-        body.appendChild(createTextItem('h1', 'understand-redux-with-webpack'));
-        body.appendChild(createGalleryItem('img', dImage));
+        body.appendChild(str);
         return body;
     };
 }
 
-let displayMessage = welcome();
+const displayMessage = welcome(createTextItem('understand-redux-with-webpack'));
 displayMessage()
