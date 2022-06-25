@@ -1,19 +1,18 @@
+import { compose, pipe } from 'lodash/fp';
 import './styles/style.scss';
 // import dImage from './assets/dImage.png';
 
-const createTextItem = (value) => {
-    let element = document.createElement('h1');
-    element.textContent = value;
-    return element;
-}
 
-const welcome = (str) => {
-    return () => {
+const welcome = (value) => {
+    return (type) => {
         let body = document.getElementsByTagName('body')[0];
-        body.appendChild(str);
+        let element = document.createElement(`${type}`);
+        element.textContent = value;
+        body.appendChild(element);
         return body;
     };
 }
 
-const displayMessage = welcome(createTextItem('understand-redux-with-webpack'));
-displayMessage()
+welcome('understand-redux-with-webpack')('h1');
+// welcome('understand-redux-with-webpack');
+// welcome('h1');
