@@ -14,14 +14,13 @@ const createGalleryItem = (type, value) => {
 }
 
 const welcome = () => {
-    let body = document.getElementsByTagName('body')[0];
-    body.appendChild(createTextItem('h1', 'understand-redux-with-webpack'));
-    body.appendChild(createGalleryItem('img', dImage));
- return body;
+    return () => {
+        let body = document.getElementsByTagName('body')[0];
+        body.appendChild(createTextItem('h1', 'understand-redux-with-webpack'));
+        body.appendChild(createGalleryItem('img', dImage));
+        return body;
+    };
 }
 
-const displayMessage = (func) => {
-    return func();
-}
-
-displayMessage(welcome);
+let displayMessage = welcome();
+displayMessage()
