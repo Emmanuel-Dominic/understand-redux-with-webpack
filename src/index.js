@@ -20,7 +20,8 @@ const welcome = () => {
  return body;
 }
 
-let fn = welcome;
-fn()
-//welcome()
+const displayMessage = (func) => {
+    return func();
+}
 
+displayMessage(welcome);
