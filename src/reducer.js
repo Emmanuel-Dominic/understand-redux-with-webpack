@@ -1,9 +1,10 @@
+import * as actions from './actionTypes';
 // []
 let lastId = 0;
 
 // reducer, pure function using if statement
 const reducer1 = (state = [], action) => {
-    if(action.type === 'ADD_BUG'){
+    if(action.type === actions.ADD_BUG){
         return [
             ...state,
             {
@@ -12,7 +13,7 @@ const reducer1 = (state = [], action) => {
                 resolved: false
             }
         ];
-    }else if(action.type === 'REMOVE_BUG'){
+    }else if(action.type === actions.REMOVE_BUG){
         return state.filter(bug => bug.id !== action.payload.id);
     }else{
         return state;
@@ -22,7 +23,7 @@ const reducer1 = (state = [], action) => {
 // reducer, pure function using switch case
 const reducer = (state = [], action) => {
     switch(action.type){
-        case 'ADD_BUG':
+        case actions.ADD_BUG:
             return [
                 ...state,
                 {
@@ -31,7 +32,7 @@ const reducer = (state = [], action) => {
                     resolved: false
                 }
             ];
-        case 'REMOVE_BUG':
+        case actions.REMOVE_BUG:
             return state.filter(bug => bug.id !== action.payload.id);
         default:
             return state;
