@@ -1,7 +1,11 @@
 import store from './store';
-import { addBug, removeBug } from './actions';
+import { addBug, removeBug, resolveBug } from './actions';
 
-store.dispatch(addBug('This is our updated Bug.'));
+store.dispatch(addBug('This is our first Bug.'));
+console.log(store.getState());
+store.dispatch(addBug('This is our second Bug.'));
 console.log(store.getState());
 store.dispatch(removeBug(1));
+console.log(store.getState());
+store.dispatch(resolveBug(2));
 console.log(store.getState());
