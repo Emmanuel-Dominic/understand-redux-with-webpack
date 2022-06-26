@@ -15,6 +15,8 @@ const reducer1 = (state = [], action) => {
         ];
     }else if(action.type === actions.REMOVE_BUG){
         return state.filter(bug => bug.id !== action.payload.id);
+    }else if(action.type === actions.RESOLVE_BUG){
+        return state.map(bug => bug.id === action.payload.id ? { ...bug, resolved: true } : bug);
     }else{
         return state;
     }
@@ -34,6 +36,8 @@ const reducer = (state = [], action) => {
             ];
         case actions.REMOVE_BUG:
             return state.filter(bug => bug.id !== action.payload.id);
+        case actions.RESOLVE_BUG:
+            return state.map(bug => bug.id === action.payload.id ? { ...bug, resolved: true } : bug);
         default:
             return state;
     }
