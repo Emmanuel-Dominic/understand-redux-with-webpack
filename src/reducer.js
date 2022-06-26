@@ -20,7 +20,7 @@ const reducer1 = (state = [], action) => {
 }
 
 // reducer, pure function using switch case
-const reducer2 = (state = [], action) => {
+const reducer = (state = [], action) => {
     switch(action.type){
         case 'ADD_BUG':
             return [
@@ -37,3 +37,4 @@ const reducer2 = (state = [], action) => {
             return state;
     }
 }
+export default reducer;
