@@ -2,7 +2,7 @@ import store from './store';
 
 console.log(store);
 
-store.subscribe(() => {
+const unsubscribe = store.subscribe(() => {
     console.log('Store changed!', store.getState());
 });
 
@@ -15,9 +15,13 @@ store.dispatch({
     }
 });
 
+unsubscribe();
+
 store.dispatch({
     type: 'REMOVE_BUG',
     payload: {
         id: 1
     }
 });
+
+console.log(store.getState());
