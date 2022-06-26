@@ -2,6 +2,12 @@ import store from './store';
 
 console.log(store);
 
+store.subscribe(() => {
+    console.log('Store changed!', store.getState());
+});
+
+console.log(store.getState(), 'initialState');
+
 store.dispatch({
     type: 'ADD_BUG',
     payload: {
@@ -9,14 +15,9 @@ store.dispatch({
     }
 });
 
-console.log(store.getState());
-
-
 store.dispatch({
     type: 'REMOVE_BUG',
     payload: {
         id: 1
     }
 });
-
-console.log(store.getState());
